@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        #game { margin: 20px auto; max-width: 400px; }
+        input { padding: 10px; width: 80%; margin: 10px 0; }
+        button { padding: 10px; width: 85%; }
+        #hint, #attempts { margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <div id="game">
+        <h1>Number Guessing Game</h1>
+        <p>Guess a number between 1 and 100:</p>
+        <input type="number" id="guess" min="1" max="100">
+        <button onclick="checkGuess()">Guess</button>
+        <p id="hint"></p>
+        <p id="attempts"></p>
+    </div>
+    <script>
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+        let attempts = 0;
+        function checkGuess() {
+            const userGuess = Number(document.getElementById('guess').value);
+            attempts++;
+            if (userGuess < 1 || userGuess > 100) {
+                document.getElementById('hint').innerHTML = 'Please enter a number between 1 and 100.';
+            } else if (userGuess > randomNumber) {
+                document.getElementById('hint').innerHTML = 'Too high!';
+            } else if (userGuess < randomNumber) {
+                document.getElementById('hint').innerHTML = 'Too low!';
+            } else {
+                document.getElementById('hint').innerHTML = `Correct! The number was ${randomNumber}. It took you ${attempts} attempts.`;
+                document.getElementById('guess').disabled = true;
+            }
+            document.getElementById('attempts').innerHTML = `Attempts: ${attempts}`;
+        }
+    </script>
+</body>
+</html>
