@@ -1,111 +1,54 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>lYinyer - Juego Interactivo</title>
+    <title>Yinyer Studio Pro v2.0</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <div id="gameContainer" class="game-container">
-        <!-- Menú Principal -->
-        <div id="mainMenu" class="menu active">
-            <div class="menu-content">
-                <h1 class="game-title">lYinyer</h1>
-                <p class="game-subtitle">Diversión, Desafío y Rendimiento Fluido</p>
-                <div class="menu-buttons">
-                    <button class="btn btn-primary" onclick="startGame()">Jugar</button>
-                    <button class="btn btn-secondary" onclick="showAchievements()">Logros</button>
-                    <button class="btn btn-secondary" onclick="showScoreboard()">Puntuaciones</button>
-                    <button class="btn btn-secondary" onclick="showSettings()">Configuración</button>
-                </div>
+    <header>
+        <h1>Welcome to Yinyer Studio Pro v2.0</h1>
+    </header>
+    <main>
+        <section id="editor">
+            <h2>Web Builder</h2>
+            <div id="workspace">
+                <!-- Workspace for web building -->
             </div>
-        </div>
-
-        <!-- Pantalla del Juego -->
-        <div id="gameScreen" class="game-screen">
-            <div class="game-header">
-                <div class="header-info">
-                    <span>Nivel: <span id="levelDisplay">1</span></span>
-                    <span>Puntuación: <span id="scoreDisplay">0</span></span>
-                    <span>Vidas: <span id="livesDisplay">3</span></span>
-                </div>
-                <button class="btn-menu-small" onclick="pauseGame()">Pausa</button>
-            </div>
-
-            <div class="game-canvas-container">
-                <canvas id="gameCanvas" width="800" height="600"></canvas>
-            </div>
-
-            <div class="game-controls">
-                <p>Usa las flechas o WASD para moverte • Espacio para acción</p>
-            </div>
-        </div>
-
-        <!-- Menú de Pausa -->
-        <div id="pauseMenu" class="menu">
-            <div class="menu-content">
-                <h2>Juego Pausado</h2>
-                <div class="menu-buttons">
-                    <button class="btn btn-primary" onclick="resumeGame()">Continuar</button>
-                    <button class="btn btn-secondary" onclick="returnToMenu()">Menú Principal</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Menú de Logros -->
-        <div id="achievementsMenu" class="menu">
-            <div class="menu-content">
-                <h2>Logros Desbloqueados</h2>
-                <div id="achievementsList" class="achievements-list"></div>
-                <button class="btn btn-primary" onclick="returnToMenu()">Volver</button>
-            </div>
-        </div>
-
-        <!-- Menú de Puntuaciones -->
-        <div id="scoreboardMenu" class="menu">
-            <div class="menu-content">
-                <h2>Mejores Puntuaciones</h2>
-                <div id="scoreboardList" class="scoreboard-list"></div>
-                <button class="btn btn-primary" onclick="returnToMenu()">Volver</button>
-            </div>
-        </div>
-
-        <!-- Menú de Configuración -->
-        <div id="settingsMenu" class="menu">
-            <div class="menu-content">
-                <h2>Configuración</h2>
-                <div class="settings-options">
-                    <label>
-                        <input type="checkbox" id="soundToggle" checked onchange="toggleSound()">
-                        Sonido
-                    </label>
-                    <label>
-                        <input type="checkbox" id="musicToggle" checked onchange="toggleMusic()">
-                        Música
-                    </label>
-                    <label>
-                        Volumen: <input type="range" id="volumeControl" min="0" max="100" value="70" onchange="setVolume(this.value)">
-                    </label>
-                </div>
-                <button class="btn btn-primary" onclick="returnToMenu()">Volver</button>
-            </div>
-        </div>
-
-        <!-- Game Over Screen -->
-        <div id="gameOverScreen" class="menu">
-            <div class="menu-content">
-                <h2>¡Juego Terminado!</h2>
-                <p>Puntuación Final: <span id="finalScore">0</span></p>
-                <p>Nivel Alcanzado: <span id="finalLevel">1</span></p>
-                <div class="menu-buttons">
-                    <button class="btn btn-primary" onclick="startGame()">Jugar de Nuevo</button>
-                    <button class="btn btn-secondary" onclick="returnToMenu()">Menú Principal</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="game.js"></script>
+        </section>
+        <section id="preview">
+            <h2>Preview</h2>
+            <iframe id="preview-frame" src="" title="Preview"></iframe>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 Yinyer Studio. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>
+
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+}
+
+#editor, #preview {
+    margin: 20px;
+}
+
+/* script.js */
+document.addEventListener('DOMContentLoaded', function() {
+    const iframe = document.getElementById('preview-frame');
+    // Additional JavaScript functionality for web builder
+});
